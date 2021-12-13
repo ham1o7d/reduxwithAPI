@@ -1,11 +1,8 @@
 import {
     ADD_LIST_ITEM,
-    DELETE_ALL_ITEMES,
-    GET_ITEMS,
     GET_ITEMS_FAIL,
     GET_ITEMS_START,
     GET_ITEMS_SUCCESS,
-    REMOVE_LIST_ITEM
 } from "./Constants.Data";
 
 const initialState={
@@ -21,8 +18,6 @@ export const TodoListReduser= (state= initialState, action)=> {
             isLoading: true
         }
         case GET_ITEMS_SUCCESS:{ 
-            console.log(action.payload, 'payload')
-
             return {
             ...state,
             listItems:action.payload,

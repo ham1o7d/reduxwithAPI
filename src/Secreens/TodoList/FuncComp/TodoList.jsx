@@ -1,25 +1,26 @@
 import React,{useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import Loading from '../../../Components/SpinnnerLoader/Loading'
 import { getItems } from '../../../Redux/Data/Actions.Data';
 import AddItemList from './AddItemList';
 import Listitem from './Listitem';
 
-const TodoList = () => {
+const TodoList = ({translation}) => {
 
-    const {ListRED:{listItems=[], isLoading, error}} = useSelector(state => state) || {};
+    console.log(translation, 'translation');
+    const {ListRED:{listItems=[], isLoading}} = useSelector(state => state) || {};
     const dispatch= useDispatch();
     useEffect( ()=> {
         dispatch(getItems)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [] )
     return (
         <div>
-            <h2>To Do List:</h2>
-            <AddItemList />
+            <h2>{translation('title')}</h2>
+            <AddItemList translation={translation} />
             <hr />
             { !isLoading 
                 ? listItems.map(item=> <Listitem key={item.id} listItem={item} /> )
-                : <Loading />}
+                : <p>Loading...</p>}
         </div>
     )
 }

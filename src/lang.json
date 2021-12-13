@@ -1,0 +1,18 @@
+{
+  "en": {
+    "translation": {
+      "title":"المهام التي ستقوم بها",
+      "addBtn":"اضافة عنصر",
+      "inputPlaceholder":"ادخل العنصر",
+      "language":"EN"
+    }
+  },
+  "ar": {
+    "translation": {
+      "title":"To Do List:",
+      "addBtn":"Add item",
+      "inputPlaceholder":"Enter item",
+      "language":"AR"
+    }
+  }
+}

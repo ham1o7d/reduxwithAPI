@@ -1,17 +1,24 @@
 import React from "react";
 import './App.css';
-import TodoList from './Secreens/TodoList/ClassComp/TodoList' ;
-// import SignIn from './Secreens/Auth/SighIn/SignIn'
+import TodoList from './Secreens/TodoList/FuncComp/TodoList' ;
 
-class App extends React.Component {
+import {useTranslation} from "react-i18next"
+import changeLanguage from "./Helpers/Translate/changeLanguage";
+
+const App =()=>{
+
+    const {t, i18n} = useTranslation()
+    const handleChangeLanguage=()=>{
+        changeLanguage(i18n.language==='ar'?"en":'ar' ,i18n)
+    }
     
-    render() {
     return (
         <div className="App">
-            <TodoList />
+        <button onClick={handleChangeLanguage}> {t('language')} </button>
+            <TodoList translation={t} />
         </div>
     );
-  }
 }
 
 export default App;
+
